@@ -1,10 +1,9 @@
-import { Technology } from "../types/technologies";
-
+import type { ITechnology } from "../types/technologies";
 
 interface Props {
 
-    technology: Technology;
-    addToStack: (technology: Technology) => void;
+    technology: ITechnology;
+    addToStack: (technology: ITechnology) => void;
 
 }
 
