@@ -1,9 +1,12 @@
 import type { ITechnology } from "../types/technologies";
 
+
 interface Props {
 
     stack: ITechnology[];
+
     removeTechnology: (id: string) => void;
+
     removeAll: () => void;
 
 }
@@ -20,51 +23,182 @@ const StackSidebar = ({
 
     return (
 
-        <div className="border rounded-xl p-5 h-fit bg-white border-slate-200">
-            <h2 className="text-xl font-bold text-slate-900">Your Stack</h2>
-
-            <p className="text-sm text-slate-900 mb-5">{stack.length} Technology Selected</p>
-
-            {stack.map(item => (
-
-                <div
-                    key={item.id} className="border rounded-lg p-3 mb-3 flex justify-between border-slate-400">
-
-                    <div>
-
-                        <h3 className="font-semibold text-slate-900">
-
-                            {item.name}
-
-                        </h3>
+        <div
+            className="
+                bg-white
+                border
+                border-slate-200
+                rounded-2xl
+                p-7
+                h-fit
+                shadow-sm
+            "
+        >
 
 
-                        <p className="text-xs text-slate-900">
+            {/* Header */}
+            <h2
+                className="
+                    text-2xl
+                    font-bold
+                    text-slate-900
+                    mb-1
+                "
+            >
+                Your Stack
+            </h2>
 
-                            {item.category}
 
-                        </p>
+
+            <p
+                className="
+                    text-sm
+                    text-slate-400
+                    mb-6
+                "
+            >
+                {stack.length} Technology Selected
+            </p>
+
+
+
+
+
+            {/* Selected Technologies */}
+            {
+                stack.map(item => (
+
+                    <div
+                        key={item.id}
+                        className="
+                            flex
+                            items-center
+                            justify-between
+                            border
+                            border-slate-200
+                            rounded-xl
+                            p-4
+                            mb-3
+                            bg-white
+                        "
+                    >
+
+
+                        {/* Technology Info */}
+                        <div
+                            className="
+                                flex
+                                items-center
+                                gap-4
+                            "
+                        >
+
+
+                            <img
+                                src={item.icon}
+                                alt={item.name}
+                                className="
+                                    w-10
+                                    h-10
+                                    object-contain
+                                "
+                            />
+
+
+
+                            <div>
+
+
+                                <h3
+                                    className="
+                                        text-base
+                                        font-bold
+                                        text-slate-900
+                                    "
+                                >
+                                    {item.name}
+                                </h3>
+
+
+
+                                <p
+                                    className="
+                                        text-xs
+                                        text-slate-400
+                                    "
+                                >
+                                    {item.category}
+                                </p>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                        {/* Remove Button */}
+                        <button
+
+                            onClick={() => removeTechnology(item.id)}
+
+                            className="
+                                text-3xl
+                                font-light
+                                text-slate-400
+                                hover:text-slate-700
+                                transition
+                                leading-none
+                            "
+
+                        >
+                            ×
+
+                        </button>
+
 
 
                     </div>
 
-                    <button
-                        onClick={() => removeTechnology(item.id)} className="bg-black"
-                    >
-                        ✕
-                    </button>
 
-                </div>
-
-            ))
-
+                ))
             }
 
-            <button onClick={removeAll} className="btn btn-outline btn-error w-full mt-5">
-                Remove All
-            </button>
-        </div>
 
+
+
+
+
+            {/* Remove All Button */}
+            <button
+
+                onClick={removeAll}
+
+                className="
+                    mt-8
+                    w-full
+                    h-12
+                    rounded-lg
+                    border
+                    border-red-300
+                    text-red-500
+                    bg-white
+                    font-semibold
+                    hover:bg-red-50
+                    transition
+                "
+
+            >
+
+                Remove All
+
+            </button>
+
+
+        </div>
 
     )
 
