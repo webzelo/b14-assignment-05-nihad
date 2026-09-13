@@ -6,60 +6,58 @@ import type { ITechnology } from "../types/technologies";
 
 interface Props {
 
-technologies:ITechnology[];
+    technologies: ITechnology[];
 
-stack:ITechnology[];
+    stack: ITechnology[];
 
-addToStack:(technology:ITechnology)=>void;
+    addToStack: (technology: ITechnology) => void;
 
-removeTechnology:(id:string)=>void;
+    removeTechnology: (id: string) => void;
 
-removeAll:()=>void;
+    removeAll: () => void;
 
 }
 
 
 
 const Technology = ({
-technologies,
-stack,
-addToStack,
-removeTechnology,
-removeAll
+    technologies,
+    stack,
+    addToStack,
+    removeTechnology,
+    removeAll
 
-}:Props)=>{
-
-
-return (
-
-<section className="max-w-7xl mx-auto px-8 lg:px-20 py-20">
+}: Props) => {
 
 
-<h2 className="text-4xl font-bold">
+    return (
 
-Explore the
-
-<span className="text-pink-500">
- Technologies
-</span>
-
-</h2>
+        <section className="max-w-7xl mx-auto px-8 lg:px-20 py-20 bg-white">
 
 
+            <h2 className="text-4xl font-bold text-black">
 
-<p className="text-slate-500 mt-3">
+                Explore the
 
-Pick one technology per category to build your ideal stack.
+                <span className="text-pink-500">
+                    Technologies
+                </span>
 
-</p>
+            </h2>
+
+            <p className="text-slate-900 mt-3">
+
+                Pick one technology per category to build your ideal stack.
+
+            </p>
 
 
 
 
-<div className="grid lg:grid-cols-4 gap-6 mt-10">
+            <div className="grid lg:grid-cols-4 gap-6 mt-10">
 
 
-<div className="
+                <div className="
 lg:col-span-3
 grid
 md:grid-cols-2
@@ -68,47 +66,47 @@ gap-6
 ">
 
 
-{
+                    {
 
-technologies.map(item=>
+                        technologies.map(item =>
 
-<TechnologyCard
+                            <TechnologyCard
 
-key={item.id}
+                                key={item.id}
 
-technology={item}
+                                technology={item}
 
-addToStack={addToStack}
+                                addToStack={addToStack}
 
-/>
+                            />
 
-)
+                        )
 
-}
-
-
-</div>
+                    }
 
 
-
-<StackSidebar
-
-stack={stack}
-
-removeTechnology={removeTechnology}
-
-removeAll={removeAll}
-
-/>
+                </div>
 
 
-</div>
+
+                <StackSidebar
+
+                    stack={stack}
+
+                    removeTechnology={removeTechnology}
+
+                    removeAll={removeAll}
+
+                />
 
 
-</section>
+            </div>
 
 
-)
+        </section>
+
+
+    )
 
 }
 
