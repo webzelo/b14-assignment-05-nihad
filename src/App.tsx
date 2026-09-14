@@ -21,6 +21,7 @@ function App() {
 
   const [stack, setStack]
     = useState<ITechnology[]>([]);
+    
 
   useEffect(() => {
 
