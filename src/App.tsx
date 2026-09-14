@@ -19,47 +19,27 @@ function App() {
   const [technologies, setTechnologies]
     = useState<ITechnology[]>([]);
 
-
-
   const [stack, setStack]
     = useState<ITechnology[]>([]);
 
-
-
-
   useEffect(() => {
 
-
     fetch("/technologies.json")
-
       .then(res => res.json())
-
       .then(data => setTechnologies(data));
-
-
   }, []);
-
-
-
-
-
 
 
   // Add Technology
 
   const addToStack = (technology: ITechnology) => {
 
-
-
     const exists =
       stack.find(
         item => item.id === technology.id
       );
 
-
-
     if (exists) {
-
 
       toast.warning(
         `${technology.name} is already in your stack`
@@ -93,27 +73,15 @@ function App() {
   };
 
 
-
-
-
-
-
-
-
   // Remove Single Technology
 
   const removeTechnology = (id: string) => {
-
-
 
     const removedItem = stack.find(
 
       item => item.id === id
 
     );
-
-
-
 
 
     setStack(
@@ -125,9 +93,6 @@ function App() {
       )
 
     );
-
-
-
 
 
 
@@ -145,12 +110,6 @@ function App() {
 
 
   };
-
-
-
-
-
-
 
 
 
@@ -176,11 +135,7 @@ function App() {
 
 
 
-
-
     setStack([]);
-
-
 
 
     toast.error(
@@ -191,13 +146,6 @@ function App() {
 
 
   };
-
-
-
-
-
-
-
 
 
   return (
